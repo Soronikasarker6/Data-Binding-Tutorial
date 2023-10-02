@@ -11,9 +11,9 @@ sap.ui.require([
             grettingText: "Hi, my name is Pinky"
         });
         sap.ui.getCore().setModel(oModel);
-
-		// Create a text UI element that displays a hardcoded text string
-		new Text({text: "Hi, my name is Pinky"}).placeAt("content");
+        // Display a text element whose text is derived from the model object
+        //(/) at the beginning of the binding path denotes an absolute binding path.
+		new Text({text: "{/grettingText}"}).placeAt("content");
 	});
 
 
