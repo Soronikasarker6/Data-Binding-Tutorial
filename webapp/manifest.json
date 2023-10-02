@@ -1,7 +1,7 @@
 {
     "_version": "1.12.0",
     "sap.app": {
-      "id": "sap.ui.demo.walkthrough",
+      "id": "sap.ui.demo.data.binding",
       "type": "application",
       "i18n": "i18n/i18n.properties",
       "title": "{{appTitle}}",
@@ -20,9 +20,16 @@
     },
     "sap.ui5": {
       "rootView": {
-          "viewName": "sap.ui.demo.walkthrough.view.App",
-          "type": "XML",
-          "id": "app"
+        "viewName": "sap.ui.demo.data.binding.view.App",
+        "type": "XML",
+        "id": "app"
+      },
+      "resources": {
+        "css": [
+          {
+            "uri": "css/style.css"
+          }
+        ]
       },
       "dependencies": {
         "minUI5Version": "1.93",
@@ -35,9 +42,45 @@
         "i18n": {
           "type": "sap.ui.model.resource.ResourceModel",
           "settings": {
-            "bundleName": "sap.ui.demo.walkthrough.i18n.i18n",
+            "bundleName": "sap.ui.demo.data.binding.i18n.i18n",
             "supportedLocales": [""],
             "fallbackLocale": ""
+          }
+        },
+        "invoice": {
+          "dataSource": "invoiceRemote"
+        }
+      },
+      "routing": {
+        "config": {
+          "routerClass": "sap.m.routing.Router",
+          "type": "View",
+          "viewType": "XML",
+          "path": "sap.ui.demo.data.binding.view",
+          "controlId": "app",
+          "controlAggregation": "pages",
+          "async": true
+        },
+        "routes": [
+          {
+            "pattern": "",
+            "name": "overview",
+            "target": "overview"
+          },
+          {
+            "pattern": "detail/{invoicePath}",
+            "name": "detail",
+            "target": "detail"
+          }
+        ],
+        "targets": {
+          "overview": {
+            "id": "overview",
+            "name": "Overview"
+          },
+          "detail": {
+            "id": "detail",
+            "name": "Detail"
           }
         }
       }
