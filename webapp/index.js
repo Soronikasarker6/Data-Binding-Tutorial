@@ -13,9 +13,14 @@ sap.ui.require([
 		// Create a JSON model from an object literal
 		var oModel = new JSONModel({
 			firstName: "Harry",
-			lastName: "Hawk",
+			lastName: "Potter",
 			enabled: true,
-			panelHeaderText: "Data Binding Basics"
+			address: {
+				street: "Dietmar-Hopp-Allee 16",
+				city: "Walldorf",
+				zip: "69190",
+				country: "Germany"
+			}
 
 		});
 		// oModel.setDefaultBindingMode(BindingMode.OneWay)
