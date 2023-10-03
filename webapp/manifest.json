@@ -47,7 +47,7 @@
             "fallbackLocale": ""
           }
         },
-        "invoice": {
+        "products": {
           "dataSource": "invoiceRemote"
         }
       },
